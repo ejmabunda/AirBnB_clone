@@ -13,10 +13,19 @@ class BaseModel:
         updated_at (datetime): timestamp of when the object was updated.
 
     """
-    def __init__(self):
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+    def __init__(self, *args, **kwargs):
+        if kwargs:
+            for key, value in kwargs.items():
+                if key is not '__class__':
+                    if key in ['created_at', 'updated_at']:
+                        dt = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                        setattr(self, key, dt)
+                    else:
+                        setattr(self, key, value)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
 
     def __str__(self):
         """Returns the string representation of a BaseModel instance.
