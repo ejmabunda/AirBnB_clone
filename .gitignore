@@ -1,6 +1,0 @@
-# Ignore Emacs temp files
-*~
-\#*
-
-# Ignore Python temp files
-__pycache__
