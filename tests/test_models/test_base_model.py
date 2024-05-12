@@ -21,6 +21,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.model.name, "My First Model")
         self.assertEqual(self.model.my_number, 89)
 
+    def test___str__(self):
+        """Test if '__str__' returns correct representation.
+        """
+        expected_str = f"[{self.model.__class__.__name__}] ({self.model.id}) {self.model.__dict__}"
+        # Assert that the actual string representation matches the expected format
+        self.assertEqual(str(self.model), expected_str)
+
     def test_save(self):
         """Test if save() updates 'updated_at'.
         """
