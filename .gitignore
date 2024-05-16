@@ -5,3 +5,6 @@
 
 # Ignore Python temp files
 __pycache__
+
+# Ignore JSON files
+*.json
