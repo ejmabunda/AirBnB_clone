@@ -52,5 +52,18 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
+    def precmd(self, line):
+        """
+        This method is executed just before the line is interpreted,
+        but after the input prompt is generated and issued.
+
+        Args:
+            line (str): The line to be executed.
+
+        Returns:
+            The line stripped of leading and trailing whitespaces.
+        """
+        return line.strip()
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
