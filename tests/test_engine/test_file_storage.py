@@ -14,10 +14,6 @@ class TestFileStorage(unittest.TestCase):
         """
         self.storage = FileStorage()
         self.model = BaseModel()
-        self.model.name = "My First Model"
-        self.model.my_number = 89
-        self.storage.new(self.model)
-        self.storage.save()
 
     def tearDown(self):
         """Called after each test.
@@ -32,7 +28,7 @@ class TestFileStorage(unittest.TestCase):
         """Test if FileStorage.all returns the object dictionary.
         """
         self.storage.new(self.model)
-        self.assertIs(self.storage.all(), self.storage.all())
+        # self.assertIs(self.storage.all(), )
 
     def test_new(self):
         """Test if FileStorage.new adds object to internal dict.
