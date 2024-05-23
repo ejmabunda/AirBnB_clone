@@ -49,7 +49,3 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(reloaded_model.name, "Test Model")
         self.assertIsInstance(reloaded_model.created_at, datetime)
         self.assertIsInstance(reloaded_model.updated_at, datetime)
-
-
-if __name__ == '__main__':
-    unittest.main()
