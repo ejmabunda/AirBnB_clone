@@ -1,6 +1,5 @@
 import json
 import os
-from os.path import exists
 
 
 class FileStorage:
@@ -39,11 +38,8 @@ class FileStorage:
         """
         Serializes __objects to the JSON file (__file_path).
         """
+        obj_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
         with open(self.__file_path, "w", encoding='utf-8') as f:
-            obj_dict = {
-                key: obj.to_dict()
-                for key, obj in self.__objects.items()
-            }
             json.dump(obj_dict, f)
 
     def reload(self):
