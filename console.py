@@ -119,7 +119,13 @@ class HBNBCommand(cmd.Cmd):
         try:
             class_name = args[0]
             instance_id = args[1]
+            if len(args) < 3:
+                print("** instance id missing **")
+                return
             attribute_name = args[2]
+            if len(args) < 4:
+                print("** attribute name missing **")
+                return
             attribute_value = args[3]
             instance = storage.all().get(f"{class_name}.{instance_id}")
             if instance:
@@ -135,6 +141,8 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
         except ValueError:
             print("** value missing **")
+
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
