@@ -53,7 +53,7 @@ class FileStorage:
             json_objects = json.load(file)
             for key, obj_dict in json_objects.items():
                 class_name = obj_dict["__class__"]
-                module_name = "models.user"  # Update to the correct module name
+                module_name = "models.user"
                 module = __import__(module_name, fromlist=[class_name])
                 class_ = getattr(module, class_name)
                 self.__objects[key] = class_(**obj_dict)

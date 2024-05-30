@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
+"""This module supplies the User class.
+"""
+
 
 class User(BaseModel):
     """
